@@ -33,10 +33,21 @@ $serializer = new Serializer($normalizers, $encoders);
 
 class A {
   public DateTimeImmutable $createAt;
+  public B $nestedObject;
 };
+class B {
+    public string $name;
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+}
 
 $object = new A();
 $object->createAt = new DateTimeImmutable();
+$object->nestedObject = new B('somename');
+
 $json = $serializer->serialize($object, 'json');
 var_dump($json);
 
