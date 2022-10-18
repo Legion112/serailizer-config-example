@@ -1,0 +1,7 @@
+services:
+  app:
+    image: fearofcode/php-8-cli:latest
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /Users/max/pa/paxoffice-users-php/docker-compose.yml:/input/docker-compose.yml:ro
